@@ -1,13 +1,13 @@
 <?php
-	include '../connection.php';
-	// Initialize session
-	session_start();
+    include '../connection.php';
+    // Initialize session
+    session_start();
     $id = $_SESSION['id'];
 
-	if ($_SESSION['loggedin'] !== TRUE) {
-		header('location: ../login.php');
-		exit;
-	}
+    if ($_SESSION['loggedin'] !== true) {
+        header('location: ../login.php');
+        exit;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -20,39 +20,54 @@
     <title>Dashboard</title>
 </head>
 <body>
-    <div style="overflow: hidden; height: 100vh;">
+   <div style="overflow: hidden; height: 100vh; ">
         <div class="header">
-            <div class="logo">
-                <img src="../images/pms_logo.jpeg" alt="pms_logo" width="85%">
+            <!-- <div class="sub-header"> -->
+            <div class="app-header-left" style="padding-right: 10px; padding-left:10px; padding-bottom:10px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-list">
+                            <line x1="8" y1="6" x2="21" y2="6" />
+                            <line x1="4" y1="12" x2="32" y2="12" />
+                            <line x1="8" y1="18" x2="21" y2="18" />
+                        </svg>
             </div>
             <p>Payroll Management System</p>
             <a href="../index.html">Home</a>
             <a href="../support.php">Support</a>
             <a href="../announcement.php">Announcements</a>
             <a href="../faqs.html">FAQs</a>
+            <!-- </div> -->
+
+
         </div>
-        <div class="sidebar">
+
+    <div class="task_area" >
+
+        <div class="bg_task_area">
+
+
+
+            <div class="sidebar">
             <div class="bg_sidebar">
                 <div class="user">
 
                     <?php
-                    $img = mysqli_query($con,"select picture from users where user_id = $id "); // fetch data from database
-                    $row = mysqli_fetch_array($img);
+                        $img = mysqli_query($con, "select picture from users where user_id = $id "); // fetch data from database
+                        $row = mysqli_fetch_array($img);
 
-                    if (
-                        $row['picture'] == '' ||  $row['picture'] == null ||  empty($row['picture']) ||  !$row['picture'])
-                        {
+                        if (
+                            $row['picture'] == '' || $row['picture'] == null || empty($row['picture']) || ! $row['picture']) {
                         ?>
                         <img src="../images/user.png" alt="User Photo" width="45%"> <!-- This Dummy image will be displayed if user img not found in DB -->
                         <?php
-                    }
-                    else {
-                        // echo '<img src="data:image/jpeg;base64,'.base64_encode( $row['picture'] ).'" width="100" eight="100"/>';
-                        echo '<img src= "'.$row["picture"].'" width="100" eight="100"/>';
-                    }
-                    ?>
-                    <span style="display: block;">Welcome <?php echo $_SESSION['name'] ?></span>
-                    
+                            } else {
+                                // echo '<img src="data:image/jpeg;base64,'.base64_encode( $row['picture'] ).'" width="100" eight="100"/>';
+                                echo '<img src= "' . $row["picture"] . '" width="100" eight="100"/>';
+                            }
+                        ?>
+                    <span style="display: block;">Welcome<?php echo $_SESSION['name'] ?></span>
+
                 </div>
                 <hr style="border-width:1px;width:95%;text-align:center">
                 <a href="../admin/dashboard.php">Dashboard</a>
@@ -63,46 +78,57 @@
                 <a href="../logout.php">Logout</a>
             </div>
         </div>
-        <div class="task_area">
-            <div class="bg_task_area">
                 <div class="area1_db_adm">
-                    <h3>DASHBOARD</h3>
+                    <h3>ADMIN DASHBOARD</h3>
                     <a href="support.php">Support</a>
                     <a href="announcement.php">Announcements</a>
                     <?php
-                        $today = date('Y-m-d');
-                        $present = mysqli_query($con, "SELECT COUNT(*) AS `count` FROM `attendance` WHERE `attend_date` = '$today'");
-                        $row = mysqli_fetch_array($present);
+                        $today        = date('Y-m-d');
+                        $present      = mysqli_query($con, "SELECT COUNT(*) AS `count` FROM `attendance` WHERE `attend_date` = '$today'");
+                        $row          = mysqli_fetch_array($present);
                         $countPresent = $row['count'];
 
                         $employees = mysqli_query($con, "SELECT COUNT(*) AS `count` FROM `employees`");
-                        $row = mysqli_fetch_array($employees);
-                        $totalEmp = $row['count'];
+                        $row       = mysqli_fetch_array($employees);
+                        $totalEmp  = $row['count'];
 
                         $absent = $totalEmp - $countPresent;
 
                         if ($totalEmp > 0) {
-                        $percent = 100 * $countPresent / $totalEmp;} else { $percent = 0; }
+                            $percent = 100 * $countPresent / $totalEmp;
+                        } else { $percent = 0;}
                     ?>
-                    <a href="../admin/employees.php"><p style="padding: 15px 7px;">Total Employees<br><span><?php echo $totalEmp ?></span></p></a>
-                    <a href="present.php"><p>Present<br><span><?php echo $countPresent ?></span></p></a>
-                    <a href="absent.php"><p>Absent<br><span><?php echo $absent ?></span></p></a>
-                    <p>Attendance<br><span><?php echo round($percent,2) ?></span> %</p>
+                    <div  class="logs">
+                        <div style="display: flex; gap:30px; width:85%;text-align:center;">
+
+                            <div  class="log">  <h2>Present</h2> <span><?php echo $countPresent ?></span>
+                            </div>
+                            <div  class="log">             <h2>Absent</h2>     <span><?php echo $absent ?></span>
+                            </div>
+                        </div>
+                        <div class="log-2" style="display: flex; gap:30px;width:85%;text-align:center;">
+                        <div  class="log">              <h2> Total Employees</h2>   <span><?php echo $totalEmp ?></span>
+                        </div>
+                            <div  class="log">         <h2>Attendance</h2>          <span><?php echo round($percent, 2) ?></span> %
+                            </div>
+                        </div>
+
+
+                    </div>
+
                 </div>
                 <hr style="border-width:1px;width:90%;text-align:center">
                 <div class="area2_db_adm">
-                    <a href="../admin/employees.php">
-                        <p>Employees</p>
-                    </a>
-                    <a href="../admin/departments.php">
-                        <p>Departments</p>
-                    </a>
-                    <a href="../admin/payrolls.php">
-                        <p>Payrolls</p>
-                    </a>
+                    <div style="display: flex;flex-direction: column;   gap: 20px; ">
+                        <span>Employees</span>
+                        <span>Departments</span>
+                        <span>Payrolls</span>
+                    </div>
+
                 </div>
             </div>
         </div>
     </div>
+    <script src="../js/script.js"> </script>
 </body>
 </html>
