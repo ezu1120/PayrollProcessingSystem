@@ -13,9 +13,7 @@ include 'connection.php';
 <body>
     <div style="height: 100vh; overflow: hidden;">
         <div class="header">
-            <div class="logo">
-                <img src="images/pms_logo.jpeg" alt="pms_logo" width="85%">
-            </div>
+
             <p>Payroll Management System</p>
             <a href="index.html">Home</a>
             <a href="support.php">Support</a>
