@@ -1,14 +1,14 @@
 <?php
-	include '../connection.php';
-	// Initialize session
-	session_start();
-    $id = $_SESSION['id'];
+    include '../connection.php';
+    // Initialize session
+    session_start();
+    $id     = $_SESSION['id'];
     $emp_id = $_SESSION['emp_id'];
 
-	if ($_SESSION['loggedin'] !== TRUE) {
-		header('location: ../login.php');
-		exit;
-	}
+    if ($_SESSION['loggedin'] !== true) {
+        header('location: ../login.php');
+        exit;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -23,8 +23,14 @@
 <body>
     <div style="overflow: hidden; height: 100vh;">
         <div class="header">
-            <div class="logo">
-                <img src="../images/pms_logo.jpeg" alt="pms_logo" width="85%">
+        <div class="app-header-left" style="padding-right: 10px; padding-left:10px; padding-bottom:10px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-list">
+                            <line x1="8" y1="6" x2="21" y2="6" />
+                            <line x1="4" y1="12" x2="32" y2="12" />
+                            <line x1="8" y1="18" x2="21" y2="18" />
+                        </svg>
             </div>
             <p>Payroll Management System</p>
             <a href="../index.html">Home</a>
@@ -37,22 +43,20 @@
                 <div class="user">
 
                     <?php
-                    $img = mysqli_query($con,"select picture from users where user_id = $id "); // fetch data from database
-                    $row = mysqli_fetch_array($img);
+                        $img = mysqli_query($con, "select picture from users where user_id = $id "); // fetch data from database
+                        $row = mysqli_fetch_array($img);
 
-                    if (
-                        $row['picture'] == '' ||  $row['picture'] == null ||  empty($row['picture']) ||  !$row['picture'])
-                        {
+                        if (
+                            $row['picture'] == '' || $row['picture'] == null || empty($row['picture']) || ! $row['picture']) {
                         ?>
                         <img src="../images/user.png" alt="User Photo" width="45%"> <!-- This Dummy image will be displayed if user img not found in DB -->
                         <?php
-                    }
-                    else {
-                        echo '<img src="data:image/jpeg;base64,'.base64_encode( $row['picture'] ).'" width="100" eight="100"/>';
-                    }
-                    ?>
-                    <span style="display: block;">Welcome <?php echo ucfirst($_SESSION['name']) ?></span>
-                    
+                            } else {
+                                echo '<img src="data:image/jpeg;base64,' . base64_encode($row['picture']) . '" width="100" eight="100"/>';
+                            }
+                        ?>
+                    <span style="display: block;">Welcome<?php echo ucfirst($_SESSION['name']) ?></span>
+
                 </div>
                 <hr style="border-width:1px;width:95%;text-align:center">
                 <a href="../employee/dashboard.php">Dashboard</a>
@@ -68,21 +72,21 @@
                     <h3>DASHBOARD</h3>
 
                     <?php
-                        $today = date('Y-m-d');
-                        $first = date('Y-m-00');
-                        $attend = mysqli_query($con,"SELECT count(*) AS count FROM attendance WHERE attend_date > '$first' AND emp_id = $emp_id");
-                        $row = mysqli_fetch_array($attend);
+                        $today       = date('Y-m-d');
+                        $first       = date('Y-m-00');
+                        $attend      = mysqli_query($con, "SELECT count(*) AS count FROM attendance WHERE attend_date > '$first' AND emp_id = $emp_id");
+                        $row         = mysqli_fetch_array($attend);
                         $attendCount = $row['count'];
 
                         /**********   PHP to count absents in working days  *************/
-                        $myTime = strtotime(date('Y-m-d'));
+                        $myTime   = strtotime(date('Y-m-d'));
                         $workDays = 0;
-                        $days = date('d');
-                        while($days > 0)
-                        {
+                        $days     = date('d');
+                        while ($days > 0) {
                             $day = date("D", $myTime); // Sun - Sat
-                            if($day != "Sun")
+                            if ($day != "Sun") {
                                 $workDays++;
+                            }
 
                             $days--;
                             $myTime += 86400; // 86,400 seconds = 24 hrs.
@@ -95,7 +99,7 @@
                     <p>Attendance<br><span><?php echo $attendCount ?></span></p>
                     <p>Absent<br><span><?php echo $absentCount ?></span></p>
                     <p>Leaves<br><span>00</span></p>
-                    <p>Attendance %<br><span><?php echo round($percent,2) ?></span></p>
+                    <p>Attendance %<br><span><?php echo round($percent, 2) ?></span></p>
                 </div>
                 <hr style="border-width:1px;width:95%;text-align:center">
                 <div class="area2_db_emp">
@@ -117,15 +121,14 @@
     </div>
 
     <?php
-    $marked = false;
+        $marked = false;
 
-    if(isset($_GET['status']) && $_GET['status'] == 3){
-       $marked = true;
-    }
+        if (isset($_GET['status']) && $_GET['status'] == 3) {
+            $marked = true;
+        }
 
-    if($marked)
-    {
-     echo '
+        if ($marked) {
+            echo '
        <script type="text/javascript">
          function hideMsg()
          {
@@ -135,7 +138,8 @@
          document.getElementById("mark").style.visibility = "visible";
          window.setTimeout("hideMsg()", 3500);
        </script>';
-    }
+        }
     ?>
+            <script src="../js/script.js"> </script>
 </body>
 </html>
