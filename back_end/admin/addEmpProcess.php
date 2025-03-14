@@ -1,17 +1,18 @@
 <?php
 // Copying form data into variables
-$name = $_POST['name'];
+$name   = $_POST['name'];
 $gender = $_POST['gender'];
 // $position = $_POST['position'];
 $position = "Software Engineer";
-$doj = $_POST['doj'];
-$dob = $_POST['dob'];
-$email = $_POST['email'];
-$phone = $_POST['phone'];
-$city = $_POST['city'];
-$address = $_POST['address'];
+$doj      = $_POST['doj'];
+$dob      = $_POST['dob'];
+$email    = $_POST['email'];
+$phone    = $_POST['phone'];
+$city     = $_POST['city'];
+$address  = $_POST['address'];
+$salary   = $_POST['salary'];
 
-// Connecting with the database   
+// Connecting with the database
 $con = new mysqli('localhost', 'root', '', 'payroll');
 
 // Check connection
@@ -41,6 +42,11 @@ if ($con->connect_error) {
                 $ded->bind_param("ii", $val, $lastId);
                 $ded->execute();
 
+                $sly = "INSERT INTO salaries (amount, emp_id) VALUES (?, ?);";
+                if (! $con->query($sly)) {
+                    echo $con->error;
+                }
+
                 // Redirect to the addEmp page
                 header("Location: ../admin/addEmp.php?status=1");
                 exit;
@@ -57,7 +63,6 @@ if ($con->connect_error) {
     }
 
     // Close the statement and connection
-   
+
     $con->close();
 }
-?>
