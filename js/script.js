@@ -6,4 +6,34 @@ document.addEventListener("DOMContentLoaded", function () {
         sidebar.classList.toggle("show-sidebar");
         task_bar.classList.toggle("task_area2");
     });
+    document.querySelector(".present").addEventListener("click", function() {
+        window.location.href = "../admin/present.php"; // Change this URL to your desired page
+    });
+    document.querySelector(".absent").addEventListener("click", function() {
+        window.location.href = "../admin/absent.php"; // Change this URL to your desired page
+    });
+    document.querySelector(".total_emp").addEventListener("click", function() {
+        window.location.href = "../admin/employees.php"; // Change this URL to your desired page
+    });
+    document.querySelector(".attendance").addEventListener("click", function() {
+        window.location.href = "../admin/attendance.php"; // Change this URL to your desired page
+    });
+    document.querySelector(".employees").addEventListener("click", function() {
+        window.location.href = "../admin/employees.php"; // Change this URL to your desired page
+    });
+    document.querySelector(".departments").addEventListener("click", function() {
+        window.location.href = "../admin/departments.php"; // Change this URL to your desired page
+    });
+    document.querySelector(".payrolls").addEventListener("click", function() {
+        window.location.href = "../admin/payrolls.php"; // Change this URL to your desired page
+    });
+
+    
+
+        fetch("../database_tables/insert_data.php")
+        .then(data => console.log("Server Response:", data))
+        .catch(error => console.error("Error inserting data:", error));
+
+
+
 });
