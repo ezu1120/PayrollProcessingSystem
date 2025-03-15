@@ -32,7 +32,7 @@
                         </svg>
             </div>
             <p>Payroll Management System</p>
-            <a href="../home.html">Home</a>
+            <a href="../index.html">Home</a>
             <a href="../support.php">Support</a>
             <a href="../announcement.php">Announcements</a>
             <a href="../faqs.html">FAQs</a>
@@ -69,7 +69,7 @@
         </div>
         <div class="task_area">
             <div class="bg_task_area">
-                <p style="margin-left: 50px">Enter following details to delete a user.</p>
+                <p style="margin-left: 100px">Enter following details to delete a user.</p>
                 <hr style="border-width:1px;width:90%;text-align:center">
                 <form class="addEmpForm" action="deltUserProcess.php" method="post">
 
