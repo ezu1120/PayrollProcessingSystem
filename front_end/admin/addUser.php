@@ -1,13 +1,13 @@
 <?php
-	include '../connection.php';
-	// Initialize session
-	session_start();
+    include '../connection.php';
+    // Initialize session
+    session_start();
     $id = $_SESSION['id'];
 
-	if ($_SESSION['loggedin'] !== TRUE) {
-		header('location: ../login.php');
-		exit;
-	}
+    if ($_SESSION['loggedin'] !== true) {
+        header('location: ../login.php');
+        exit;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +21,7 @@
     <script src="../jquery-3.2.1.min.js"></script>
     <title>Add New User</title>
 
-    <script>  
+    <script>
         var check = function() {
             if (document.getElementById('password').value ==
                 document.getElementById('confirm_password').value) {
@@ -54,42 +54,47 @@
 <body>
     <div style="overflow: hidden; height: 100vh;">
         <div class="header">
-            <div class="logo">
-                <img src="../images/pms_logo.jpeg" alt="pms_logo" width="85%">
+            <div class="app-header-left" style="padding-right: 10px; padding-left:10px; padding-bottom:10px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="feather feather-list">
+                                <line x1="8" y1="6" x2="21" y2="6" />
+                                <line x1="4" y1="12" x2="32" y2="12" />
+                                <line x1="8" y1="18" x2="21" y2="18" />
+                            </svg>
+
             </div>
-            <p>Payroll Management System</p>
-            <a href="../home.html">Home</a>
-            <a href="../support.php">Support</a>
-            <a href="../announcement.php">Announcements</a>
-            <a href="../faqs.html">FAQs</a>
+                <p>Payroll Management System</p>
+                <a href="../home.html">Home</a>
+                <a href="../support.php">Support</a>
+                <a href="../announcement.php">Announcements</a>
+                <a href="../faqs.html">FAQs</a>
         </div>
         <div class="sidebar">
             <div class="bg_sidebar">
                 <div class="user">
 
                     <?php
-                    $img = mysqli_query($con,"select picture from users where user_id = $id "); // fetch data from database
-                    $row = mysqli_fetch_array($img);
+                        $img = mysqli_query($con, "select picture from users where user_id = $id "); // fetch data from database
+                        $row = mysqli_fetch_array($img);
 
-                    if (
-                        $row['picture'] == '' ||  $row['picture'] == null ||  empty($row['picture']) ||  !$row['picture'])
-                        {
+                        if (
+                            $row['picture'] == '' || $row['picture'] == null || empty($row['picture']) || ! $row['picture']) {
                         ?>
                         <img src="../images/user.png" alt="User Photo" width="45%"> <!-- This Dummy image will be displayed if user img not found in DB -->
                         <?php
-                    }
-                    else {
-                        echo '<img src="data:image/jpeg;base64,'.base64_encode( $row['picture'] ).'" width="100" eight="100"/>';
-                    }
-                    ?>
-                    <span style="display: block;">Welcome <?php echo $_SESSION['name'] ?></span>
+                            } else {
+                                echo '<img src= "' . $row["picture"] . '" width="100" eight="100"/>';
+                            }
+                        ?>
+                    <span style="display: block;">Welcome<?php echo $_SESSION['name'] ?></span>
                 </div>
                 <hr style="border-width:1px;width:95%;text-align:center">
                 <a href="../admin/dashboard.php">Dashboard</a>
                 <a href="../admin/employees.php">Employees</a>
                 <a href="../admin/departments.php">Departments</a>
                 <a href="../admin/payrolls.php">Payrolls</a>
-                <a href="../admin/users.php">Users</a>            
+                <a href="../admin/users.php">Users</a>
                 <a href="../logout.php">Logout</a>
             </div>
         </div>
@@ -131,29 +136,28 @@
     <div id="popup">
         New user has been created succeesfully!
     </div>
-    
+
     <div id="popup2">
         Employee ID does not exist. Please try again.
     </div>
-    
+
     <div id="popup3">
         User already exists.
     </div>
-    
+
     <div id="popup4">
         Username already exists. Please, try with a unique username.
     </div>
 
     <?php
-    $recordAdded = false;
+        $recordAdded = false;
 
-    if(isset($_GET['status']) && $_GET['status'] == 1){
-       $recordAdded = true;
-    }
+        if (isset($_GET['status']) && $_GET['status'] == 1) {
+            $recordAdded = true;
+        }
 
-    if($recordAdded)
-    {
-     echo '
+        if ($recordAdded) {
+            echo '
        <script type="text/javascript">
          function hideMsg()
          {
@@ -163,19 +167,18 @@
          document.getElementById("popup").style.visibility = "visible";
          window.setTimeout("hideMsg()", 2500);
        </script>';
-    }
+        }
     ?>
 
 <?php
     $Id_exist = false;
 
-    if(isset($_GET['status']) && $_GET['status'] == 2){
-       $Id_exist = true;
+    if (isset($_GET['status']) && $_GET['status'] == 2) {
+        $Id_exist = true;
     }
 
-    if($Id_exist)
-    {
-     echo '
+    if ($Id_exist) {
+        echo '
        <script type="text/javascript">
          function hideMsg()
          {
@@ -186,18 +189,17 @@
          window.setTimeout("hideMsg()", 2500);
        </script>';
     }
-    ?>
+?>
 
 <?php
     $user_exist = false;
 
-    if(isset($_GET['status']) && $_GET['status'] == 3){
-       $user_exist = true;
+    if (isset($_GET['status']) && $_GET['status'] == 3) {
+        $user_exist = true;
     }
 
-    if($user_exist)
-    {
-     echo '
+    if ($user_exist) {
+        echo '
        <script type="text/javascript">
          function hideMsg()
          {
@@ -208,18 +210,17 @@
          window.setTimeout("hideMsg()", 2500);
        </script>';
     }
-    ?>
+?>
 
 <?php
     $uname_exist = false;
 
-    if(isset($_GET['status']) && $_GET['status'] == 4){
-       $uname_exist = true;
+    if (isset($_GET['status']) && $_GET['status'] == 4) {
+        $uname_exist = true;
     }
 
-    if($uname_exist)
-    {
-     echo '
+    if ($uname_exist) {
+        echo '
        <script type="text/javascript">
          function hideMsg()
          {
@@ -230,6 +231,8 @@
          window.setTimeout("hideMsg()", 2500);
        </script>';
     }
-    ?>
+?>
+        <script src="../js/script.js"> </script>
+
 </body>
 </html>
