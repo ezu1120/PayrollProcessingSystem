@@ -3,8 +3,8 @@ include("create_database.php");
 
 
 $con = new mysqli("localhost", "root", "","payroll");
-if(!$con){
-  die("couldn't conect to the created database ===========> ".mysqli_error($con));
+if($con->error){
+  die("couldn't conect to the created database ===========> ". $con->error);
 }
 $sql = "ALTER TABLE `allowances`
   ADD PRIMARY KEY (`alw_id`),
