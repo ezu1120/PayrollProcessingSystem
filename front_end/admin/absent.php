@@ -1,5 +1,5 @@
 <?php
-    include '../connection.php';
+    include '../../connection.php';
     // Initialize session
     session_start();
     $id = $_SESSION['id'];
