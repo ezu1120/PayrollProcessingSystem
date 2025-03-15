@@ -1,9 +1,9 @@
 <?php
 include 'connection.php';
 // include 'database_tables/insert_data.php';
-include 'database_tables/idex_of_tables.php';
-include 'database_tables/auto_increment.php';
-include 'database_tables/table_constraints.php';
+include 'back_end/database_tables/idex_of_tables.php';
+include 'back_end/database_tables/auto_increment.php';
+include 'back_end/database_tables/table_constraints.php';
 
 session_start();
 $user  = $_POST['username'];

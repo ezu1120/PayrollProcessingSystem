@@ -1,6 +1,6 @@
 <?php
-include 'database_tables/create_database.php';
-include 'database_tables/create_tables.php';
+    include 'database_tables/create_database.php';
+    include 'database_tables/create_tables.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,7 +8,7 @@ include 'database_tables/create_tables.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="front_end/css/style.css">
     <title>User Login</title>
 </head>
 <body>
@@ -29,7 +29,7 @@ include 'database_tables/create_tables.php';
         <div class="login-logo">
             <a href="index.html"></a>
             <h1>Payroll Management</h1>
-            
+
         </div>
         <div class="login-box-body">
             <p class="login-box-msg">Please login to start your session</p>
@@ -69,7 +69,7 @@ include 'database_tables/create_tables.php';
 
         <!-- <div class="bg_login_img">
             <div class="login_container">
-                <p>LOGIN</p>            
+                <p>LOGIN</p>
                 <div id="clock"></div>
                 <form class="login_form" action="authenticate.php" method="post">
                     <label for="username">Username</label>
@@ -78,8 +78,8 @@ include 'database_tables/create_tables.php';
                     <label for="username">Password</label>
                     <input type="password" placeholder="Type Your Password" name="password">
 
-                    <input class="login-submit" type="submit" value="Login">                
-                    <a href="forget_password.php" target="_self">Forgot Password</a>           
+                    <input class="login-submit" type="submit" value="Login">
+                    <a href="forget_password.php" target="_self">Forgot Password</a>
                 </form>
             </div>
         </div>
@@ -93,8 +93,8 @@ include 'database_tables/create_tables.php';
         setInterval(clock, 1000);
     </script>
 
-    
-    
+
+
     <div id="popupLogin">
         Incorrect username or password!
     </div>
@@ -104,15 +104,14 @@ include 'database_tables/create_tables.php';
     </div>
 
     <?php
-    $invalid = false;
+        $invalid = false;
 
-    if(isset($_GET['status']) && $_GET['status'] == 1){
-       $invalid = true;
-    }
+        if (isset($_GET['status']) && $_GET['status'] == 1) {
+            $invalid = true;
+        }
 
-    if($invalid)
-    {
-     echo '
+        if ($invalid) {
+            echo '
        <script type="text/javascript">
          function hideMsg()
          {
@@ -122,19 +121,18 @@ include 'database_tables/create_tables.php';
          document.getElementById("popupLogin").style.visibility = "visible";
          window.setTimeout("hideMsg()", 3500);
        </script>';
-    }
-    ?> 
+        }
+    ?>
 
 <?php
     $done = false;
 
-    if(isset($_GET['status']) && $_GET['status'] == 2){
-       $done = true;
+    if (isset($_GET['status']) && $_GET['status'] == 2) {
+        $done = true;
     }
 
-    if($done)
-    {
-     echo '
+    if ($done) {
+        echo '
        <script type="text/javascript">
          function hideMsg()
          {
@@ -145,7 +143,7 @@ include 'database_tables/create_tables.php';
          window.setTimeout("hideMsg()", 3500);
        </script>';
     }
-    ?>
+?>
 
 </body>
 </html>

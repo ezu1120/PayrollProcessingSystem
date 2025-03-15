@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="front_end/css/style.css">
     <title>Announcements</title>
 </head>
 <body>
@@ -31,7 +31,7 @@
         <div class="read-more-container">
 
             <div class="announce_container" style="border: 1px solid green">
-                <p >Date:                                                   <?php echo $row['dateposted'] ?>  Time:<?php echo $row['timeposted'] ?>
+                <p >Date:                                                                            <?php echo $row['dateposted'] ?>  Time:<?php echo $row['timeposted'] ?>
                 <span class="read-more-text">
                     <?php echo $row['announce_msg'] ?>
                 </span>

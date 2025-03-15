@@ -1,14 +1,14 @@
 <?php
-	include '../connection.php';
-	// Initialize session
-	session_start();
-    $id = $_SESSION['id'];
+    include '../../connection.php';
+    // Initialize session
+    session_start();
+    $id     = $_SESSION['id'];
     $emp_id = $_SESSION['emp_id'];
 
-	if ($_SESSION['loggedin'] !== TRUE) {
-		header('location: ../login.php');
-		exit;
-	}
+    if ($_SESSION['loggedin'] !== true) {
+        header('location: ../login.php');
+        exit;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +17,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
+ <link rel="stylesheet" href="front_end/css/style.css">
     <title>Profile</title>
 </head>
 <body>
@@ -34,25 +34,23 @@
         </div>
         <div class="sidebar">
             <div class="bg_sidebar">
-                <div class="user">                        
+                <div class="user">
 
                     <?php
-                    $img = mysqli_query($con,"select picture from users where user_id = $id "); // fetch data from database
-                    $row = mysqli_fetch_array($img);
+                        $img = mysqli_query($con, "select picture from users where user_id = $id "); // fetch data from database
+                        $row = mysqli_fetch_array($img);
 
-                    if (
-                        $row['picture'] == '' ||  $row['picture'] == null ||  empty($row['picture']) ||  !$row['picture'])
-                        {
-                          ?>
+                        if (
+                            $row['picture'] == '' || $row['picture'] == null || empty($row['picture']) || ! $row['picture']) {
+                        ?>
                           <img src="../images/user.png" alt="User Photo" width="45%"> <!-- This Dummy image will be displayed if user img not found in DB -->
                           <?php
-                      }
-                      else {
-                        echo '<img src="data:image/jpeg;base64,'.base64_encode( $row['picture'] ).'" width="100" eight="100"/>';
-                      }
-                    ?>
-                    <span style="display: block;">Welcome <?php echo $_SESSION['name'] ?></span>
-                    
+                              } else {
+                                  echo '<img src="data:image/jpeg;base64,' . base64_encode($row['picture']) . '" width="100" eight="100"/>';
+                              }
+                          ?>
+                    <span style="display: block;">Welcome<?php echo $_SESSION['name'] ?></span>
+
                 </div>
                 <hr style="border-width:1px;width:95%;text-align:center">
                 <a href="../employee/dashboard.php">Dashboard</a>
@@ -82,95 +80,95 @@
                     </tr>
 
                     <?php
-                    $result = mysqli_query($con,"SELECT * FROM ((((employees
+                        $result = mysqli_query($con, "SELECT * FROM ((((employees
                             INNER JOIN positions ON positions.pos_id = employees.pos_id)
                             INNER JOIN allowances ON allowances.emp_id = employees.emp_id)
                             INNER JOIN deductions ON deductions.emp_id = employees.emp_id)
                             INNER JOIN salaries ON salaries.pos_id = positions.pos_id)
                             WHERE employees.emp_id = $emp_id");
 
-                    /**** PHP for attendance counts, absent counts, deduction for leaves count etc   *********/
-                    $today = date('Y-m-d');
-                    $first = date('Y-m-00');
-                    $attend = mysqli_query($con,"SELECT count(*) AS count FROM attendance WHERE attend_date > '$first' AND emp_id = $emp_id");
-                    $row = mysqli_fetch_array($attend);
-                    $attendCount = $row['count'];
+                        /**** PHP for attendance counts, absent counts, deduction for leaves count etc   *********/
+                        $today       = date('Y-m-d');
+                        $first       = date('Y-m-00');
+                        $attend      = mysqli_query($con, "SELECT count(*) AS count FROM attendance WHERE attend_date > '$first' AND emp_id = $emp_id");
+                        $row         = mysqli_fetch_array($attend);
+                        $attendCount = $row['count'];
 
-                    //   PHP to count absents in working days
-                    $myTime = strtotime(date('Y-m-d'));
-                    $workDays = 0;
-                    $days = date('d');
-                    while($days > 0)
-                    {
-                        $day = date("D", $myTime); // Sun - Sat
-                        if($day != "Sun")
-                            $workDays++;
+                        //   PHP to count absents in working days
+                        $myTime   = strtotime(date('Y-m-d'));
+                        $workDays = 0;
+                        $days     = date('d');
+                        while ($days > 0) {
+                            $day = date("D", $myTime); // Sun - Sat
+                            if ($day != "Sun") {
+                                $workDays++;
+                            }
 
-                        $days--;
-                        $myTime += 86400; // 86,400 seconds = 24 hrs.
-                    }
-                    $absentCount = $workDays - $attendCount;
+                            $days--;
+                            $myTime += 86400; // 86,400 seconds = 24 hrs.
+                        }
+                        $absentCount = $workDays - $attendCount;
 
-                    $percent = 100 * $attendCount / $workDays;
+                        $percent = 100 * $attendCount / $workDays;
 
-                    $i=1;
-                    while($row = mysqli_fetch_array($result)){
-                    ?>
+                        $i = 1;
+                        while ($row = mysqli_fetch_array($result)) {
+                        ?>
                     <tr>
                         <td>
                             <?php echo $i ?>
                         </td>
 
                         <td>
-                            <?php echo $row['emp_id']?>
+                            <?php echo $row['emp_id'] ?>
                         </td>
 
                         <td>
-                            <?php echo $row['name']?>
+                            <?php echo $row['name'] ?>
                         </td>
 
                         <td>
-                            <?php echo $row['pos_name']?>
+                            <?php echo $row['pos_name'] ?>
                         </td>
 
                         <td>
-                            <?php echo $row['amount']?>
+                            <?php echo $row['amount'] ?>
                         </td>
 
                         <td>
-                            <?php echo $row['allowance']?>
-                        </td>
-
-                        <td>
-                            <?php
-                            $ded = $row['amount'] / 30 * $absentCount;
-                            echo round($ded,2);
-                            ?>
+                            <?php echo $row['allowance'] ?>
                         </td>
 
                         <td>
                             <?php
-                                $net_sal = $row['amount'] + $row['allowance'] - round($ded,2);
-                                echo $net_sal;
-                            ?>
+                                $ded = $row['amount'] / 30 * $absentCount;
+                                    echo round($ded, 2);
+                                ?>
                         </td>
 
                         <td>
-                            <?php echo $row['phone']?>
+                            <?php
+                                $net_sal = $row['amount'] + $row['allowance'] - round($ded, 2);
+                                    echo $net_sal;
+                                ?>
                         </td>
 
                         <td>
-                            <?php echo $row['city']?>
+                            <?php echo $row['phone'] ?>
                         </td>
 
                         <td>
-                            <?php echo $row['address']?>
+                            <?php echo $row['city'] ?>
+                        </td>
+
+                        <td>
+                            <?php echo $row['address'] ?>
                         </td>
                     </tr>
-                    <?php } ?>
+                    <?php }?>
                 </table>
             </div>
         </div>
-    </div>    
+    </div>
 </body>
 </html>
