@@ -80,8 +80,8 @@
         </div>
                 <div class="area1_db_adm">
                     <h3>ADMIN DASHBOARD</h3>
-                    <a href="support.php">Support</a>
-                    <a href="announcement.php">Announcements</a>
+                    <a href="../support.php">Support</a>
+                    <a href="../announcement.php">Announcements</a>
                     <?php
                         $today        = date('Y-m-d');
                         $present      = mysqli_query($con, "SELECT COUNT(*) AS `count` FROM `attendance` WHERE `attend_date` = '$today'");
@@ -129,15 +129,7 @@
             </div>
         </div>
     </div>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-         document.querySelector(".departments").addEventListener("click", function() {
-        window.location.href = "../admin/departments.php"; // Change this URL to your desired page
-    });
-    document.querySelector(".payrolls").addEventListener("click", function() {
-        window.location.href = "../../back_end/admin/payrolls.php"; // Change this URL to your desired page
-    });});
-    </script>
+   
     <script src="../../js/script.js"> </script>
 </body>
 </html>
