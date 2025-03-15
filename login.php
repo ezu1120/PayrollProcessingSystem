@@ -1,7 +1,7 @@
 <?php
     include 'back_end/database-table/create_database.php';
     include 'back_end/database-table/create_tables.php';
-    include 'back_end/database-table/insert_data.php';
+ 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,10 +15,8 @@
 <body>
     <div style="height: 100vh; overflow: hidden;">
         <div class="header">
-            <div class="logo">
-                <!-- <img src="images/pms_logo.jpeg" alt="pms_logo" width="85%"> -->
-            </div>
-            <p>Payroll Management System</p>
+        
+            <p style="margin-left: 100px;">Payroll Management System</p>
             <a href="index.html">Home</a>
             <a href="support.php">Support</a>
             <a href="announcement.php">Announcements</a>

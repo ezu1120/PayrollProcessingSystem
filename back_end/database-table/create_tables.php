@@ -2,8 +2,8 @@
 include "create_database.php";
 
 $con = new mysqli("localhost", "root", "", "payroll");
-if (! $con) {
-    die("couldn't conect to the created database ===========> " . mysqli_error($con));
+if ($con->error) {
+    die("couldn't conect to the created database ===========> " . $con->error);
 }
 
 $sql1 = "CREATE TABLE IF NOT EXISTS `allowances` (
@@ -103,7 +103,7 @@ if (! $con->query($sql9)) {
     $row = 1;
     do {
         $sql1 = "INSERT IGNORE INTO `users` (`user_id`, `username`, `password`, `nickname`, `type`, `picture`, `emp_id`, `dept_id`) VALUES
-  (0, 'NADEEM', 'abc123', 'nadeem', 'admin', '../images/user.png', NULL, NULL);";
+  (0, 'EBISA', 'abc123', 'nadeem', 'admin', '../images/user.png', NULL, NULL);";
         if ($con->query($sql1)) {
             echo "" . $con->error;
         }

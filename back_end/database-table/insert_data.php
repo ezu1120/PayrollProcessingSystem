@@ -2,10 +2,22 @@
 include("create_database.php");
 
 
-$con = new mysqli("localhost", "root", "","payroll");
-if(!$con){
-  die("couldn't conect to the created database ===========> ".mysqli_error($con));
+$DATABASE_HOST = 'localhost';
+$DATABASE_USER = 'root';
+$DATABASE_PASS = '';
+$DATABASE_NAME = 'payroll';
+
+// Create connection
+$con = new mysqli($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
+
+// Check connection
+if ($con->connect_error) {
+    die("Couldn't connect to the created database: " . $con->connect_error);
+} else {
+    echo "Connected successfully to the database!";
 }
+
+
 
 $sql = "INSERT INTO `allowances` (`alw_id`, `allowance`, `emp_id`) VALUES
 (1, 10000, 1);";

@@ -34,8 +34,8 @@ include '../../connection.php';
                         </svg>
             </div>
             <p>Payroll Management System</p>
-            <a href="../index.html">Home</a>
-            <a href="../support.php">Support</a>
+            <a href="../../index.html">Home</a>
+            <a href="../../support.php">Support</a>
             <a href="../announcement.php">Announcements</a>
             <a href="../faqs.html">FAQs</a>
         </div>
@@ -54,7 +54,7 @@ include '../../connection.php';
                         <?php
                             } else {
                                 // echo '<img src="data:image/jpeg;base64,'.base64_encode( $row['picture'] ).'" width="100" eight="100"/>';
-                                echo '<img src="../../front_end/images/user.png" alt="User Photo" width="45%">';
+                                echo '<img src="../../front_end/images/user.png" alt="User Photo" width="25%">';
                                 // echo '<img src= "' . $row["picture"] . '" width="100" eight="100"/>';
                             }
                         ?>
