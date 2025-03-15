@@ -1,6 +1,7 @@
 <?php
     include 'back_end/database-table/create_database.php';
     include 'back_end/database-table/create_tables.php';
+    include 'back_end/database-table/insert_data.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">

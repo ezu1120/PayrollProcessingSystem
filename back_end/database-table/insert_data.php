@@ -96,7 +96,7 @@ if (!$con->query($sql) ) {
   }
 
 $sql = "INSERT INTO `users` (`user_id`, `username`, `password`, `nickname`, `type`, `picture`, `emp_id`, `dept_id`) VALUES
-(1, 'ameer', 'ameer', 'ameer', 'manager', '', NULL, 1);
+(1, 'ezedin', '123456', 'ameer', 'manager', '', NULL, 1);
 -- (2, 'zeeshan', 'zeeshan', 'zeeshan', 'manager', '', NULL, 2),
 -- (3, 'amjad', 'amjad', 'amjad', 'manager', '', NULL, 3);";
 

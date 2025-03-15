@@ -7,25 +7,25 @@ document.addEventListener("DOMContentLoaded", function () {
         task_bar.classList.toggle("task_area2");
     });
     document.querySelector(".present").addEventListener("click", function() {
-        window.location.href = "../admin/ present.php"; // Change this URL to your desired page
+        window.location.href = "../../back_end/admin/ present.php"; // Change this URL to your desired page
     });
     document.querySelector(".absent").addEventListener("click", function() {
-        window.location.href = "../back_end/admin/absent.php"; // Change this URL to your desired page
+        window.location.href = "../admin/absent.php"; // Change this URL to your desired page
     });
     document.querySelector(".total_emp").addEventListener("click", function() {
-        window.location.href = "../front_end/admin/employees.php"; // Change this URL to your desired page
+        window.location.href = "../admin/employees.php"; // Change this URL to your desired page
     });
     document.querySelector(".attendance").addEventListener("click", function() {
         window.location.href = "../admin/attendance.php"; // Change this URL to your desired page
     });
     document.querySelector(".employees").addEventListener("click", function() {
-        window.location.href = "../front_end/admin/employees.php"; // Change this URL to your desired page
+        window.location.href = "../admin/employees.php"; // Change this URL to your desired page
     });
     document.querySelector(".departments").addEventListener("click", function() {
-        window.location.href = "../front_end/admin/departments.php"; // Change this URL to your desired page
+        window.location.href = "../admin/departments.php"; // Change this URL to your desired page
     });
     document.querySelector(".payrolls").addEventListener("click", function() {
-        window.location.href = "../back_end/admin/payrolls.php"; // Change this URL to your desired page
+        window.location.href = "../../back_end/admin/payrolls.php"; // Change this URL to your desired page
     });
 
     

@@ -102,7 +102,7 @@ if (!$con->query($sql9) ) {
   echo $con->error;
 } else {
   $sql1 = "INSERT INTO `users` (`user_id`, `username`, `password`, `nickname`, `type`, `picture`, `emp_id`, `dept_id`) VALUES
-  (0, 'NADEEM', 'abc123', 'nadeem', 'admin', '../images/user.png', NULL, NULL);";
+  (0, 'EBISA', 'abc123', 'ebisa', 'admin', '../images/user.png', NULL, NULL);";
    if ($con->query($sql1) ) {
     echo "". $con->error;
    } 
