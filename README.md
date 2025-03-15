@@ -1,6 +1,7 @@
                                 Payroll Management System
     to be logged in you have to provide these informations
 admin name = EBISA
+
 admin password = abc123
 
 A Payroll Management System is a software application designed to automate and streamline the process of managing employee salaries, tax deductions, attendance tracking, and other payroll-related tasks. 
