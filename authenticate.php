@@ -1,9 +1,9 @@
 <?php
 include 'connection.php';
 // include 'database_tables/insert_data.php';
-include 'back_end/database_tables/idex_of_tables.php';
-include 'back_end/database_tables/auto_increment.php';
-include 'back_end/database_tables/table_constraints.php';
+include 'back_end/database-table/idex_of_tables.php';
+include 'back_end/database-table/auto_increment.php';
+include 'back_end/database-table/table_constraints.php';
 
 session_start();
 $user  = $_POST['username'];
@@ -39,7 +39,7 @@ if ($stmt = $con->prepare('SELECT user_id, emp_id, password, type FROM users WHE
                 $_SESSION['name']     = $_POST['username'];
                 $_SESSION['id']       = $id;
                 $_SESSION['emp_id']   = $emp_id;
-                header("location: admin\dashboard.php");
+                header("location: front_end/admin/dashboard.php");
             } else if ($type === "manager") {
                 session_regenerate_id();
                 $result               = mysqli_query($con, "SELECT dept_id FROM users WHERE username = '$user'");
