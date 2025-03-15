@@ -33,7 +33,7 @@
                         </svg>
             </div>
             <p>Payroll Management System</p>
-            <a href="../home.html">Home</a>
+            <a href="../index.html">Home</a>
             <a href="../support.php">Support</a>
             <a href="../announcement.php">Announcements</a>
             <a href="../faqs.html">FAQs</a>
@@ -53,7 +53,9 @@
                           <img src="../images/user.png" alt="User Photo" width="45%"> <!-- This Dummy image will be displayed if user img not found in DB -->
                           <?php
                               } else {
-                                  echo '<img src="data:image/jpeg;base64,' . base64_encode($row['picture']) . '" width="100" eight="100"/>';
+           
+                               echo '<img src= "' . $row["picture"] . '" width="100" eight="100"/>';
+                           
                               }
                           ?>
                     <span style="display: block;">Welcome<?php echo $_SESSION['name'] ?></span>
@@ -70,7 +72,7 @@
         </div>
         <div class="task_area">
             <div class="bg_task_area">
-                <p style="margin-left: 50px">Enter following details to delete an existing positon.</p>
+                <p style="margin-left: 100px">Enter following details to delete an existing positon.</p>
                 <hr style="border-width:1px;width:90%;text-align:center">
                 <form class="addEmpForm" action="deltPosProcess.php" method="post">
 

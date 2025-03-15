@@ -33,7 +33,7 @@
             </div>
 
             <p>Payroll Management System</p>
-            <a href="../home.html">Home</a>
+            <a href="../index.html">Home</a>
             <a href="../support.php">Support</a>
             <a href="../announcement.php">Announcements</a>
             <a href="../faqs.html">FAQs</a>
@@ -70,7 +70,7 @@
         </div>
         <div class="task_area">
             <div class="bg_task_area">
-                <p style="margin-left: 50px">Enter Following Details to add new positon.</p>
+                <p style="margin-left: 100px">Enter Following Details to add new positon.</p>
                 <hr style="border-width:1px;width:90%;text-align:center">
                 <form class="addEmpForm" action="addPositionProcess.php" method="post">
 

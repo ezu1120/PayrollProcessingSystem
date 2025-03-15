@@ -32,7 +32,7 @@
                             </svg>
                 </div>
                 <p>Payroll Management System</p>
-            <a href="../home.html">Home</a>
+            <a href="../index.html">Home</a>
             <a href="../support.php">Support</a>
             <a href="../announcement.php">Announcements</a>
             <a href="../faqs.html">FAQs</a>

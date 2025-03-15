@@ -144,78 +144,7 @@
                 </table>
 
 
-                <table style="width: 85%; font-size: 16px;margin-left:7%">
-                    <tr>
-                        <th>Sr. No</th>
-                        <th>Emp. ID</th>
-                        <th>Name</th>
-                        <th>Gender</th>
-                        <th>Department</th>
-                        <th>Position</th>
-                        <th>Salary</th>
-                        <th>Allowance</th>
-                        <th>Deduction</th>
-                        <th>DOJ</th>
-                        <th>DOB</th>
-                        <th>Email</th>
-                        <th>Phone</th>
-                        <th>City</th>
-                        <th>Address</th>
-                    </tr>
 
-                    <?php
-                        $result = mysqli_query($con, "SELECT  *
-                 FROM employees
-                    INNER JOIN positions ON employees.pos_id = positions.pos_id
-                    INNER JOIN departments ON positions.dept_id = departments.dept_id
-                    LEFT JOIN allowances ON allowances.emp_id = employees.emp_id
-                    LEFT JOIN deductions ON deductions.emp_id = employees.emp_id
-                    ORDER BY employees.emp_id;
-                    --  LEFT JOIN salaries ON salaries.pos_id = position s.pos_id
-                ");
-
-                        // $result = mysqli_query($con,"SELECT * FROM (((((departments
-                        // INNER JOIN positions ON positions.dept_id = departments.dept_id)
-                        // INNER JOIN employees ON employees.pos_id = positions.pos_id)
-                        // INNER JOIN allowances ON allowances.emp_id = employees.emp_id)
-                        // INNER JOIN deductions ON deductions.emp_id = employees.emp_id)
-                        // INNER JOIN salaries ON salaries.pos_id = positions.pos_id)
-                        // ORDER BY employees.emp_id
-                        // ");
-                        $j = mysqli_num_rows($result);
-                        // echo $j;  # $j = No of rows in db
-                        if ($j = 0) {
-                            echo "No result found!";
-                        } else {
-                            $i = 0;
-                            while ($row = mysqli_fetch_array($result)) {
-
-                            ?>
-                                <tr>
-
-                                <td><?php echo $i + 1 ?></td>   <!-- Serial No Generate -->
-                                <td><?php echo $row["emp_id"]; ?></td>
-                                <td><?php echo $row["name"]; ?></td>
-                                <td><?php echo $row["gender"]; ?></td>
-                                <td><?php echo $row["dept_name"]; ?></td>
-                                <td><?php echo $row["pos_name"]; ?></td>
-                                <td><?php echo 0; ?></td>
-                                <td><?php echo $row["allowance"]; ?></td>
-                                <td><?php echo $row["deduction"]; ?></td>
-                                <td><?php echo $row["doj"]; ?></td>
-                                <td><?php echo $row["dob"]; ?></td>
-                                <td><?php echo $row["email"]; ?></td>
-                                <td><?php echo $row["phone"]; ?></td>
-                                <td><?php echo $row["city"]; ?></td>
-                                <td><?php echo $row["address"]; ?></td>
-
-                                </tr>
-                            <?php
-                                $i++;
-                                    }
-                                }
-                            ?>
-        </table>
             </div>
         </div>
     </div>
