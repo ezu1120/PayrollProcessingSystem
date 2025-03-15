@@ -1,5 +1,5 @@
 <?php
-include 'connection.php';
+    include 'connection.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -7,7 +7,7 @@ include 'connection.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="front_end/css/style.css">
     <title>Forget Password</title>
 </head>
 <body>
@@ -20,10 +20,10 @@ include 'connection.php';
             <a href="announcement.php">Announcements</a>
             <a href="faqs.html">FAQs</a>
         </div>
-        
+
         <div class="bg_login_img">
             <div class="login_container">
-                <p>Forget Password</p>            
+                <p>Forget Password</p>
                 <div id="clock"></div>
                 <form class="login_form" action="forgetProc.php" method="post">
                     <label for="username">Username</label>
@@ -32,7 +32,7 @@ include 'connection.php';
                     <label for="nickname">Nickname</label>
                     <input type="text" placeholder="Type Your Childhood Nickname" name="nickname">
 
-                    <input class="login-submit" type="submit" value="Proceed">      
+                    <input class="login-submit" type="submit" value="Proceed">
                 </form>
             </div>
         </div>
@@ -53,13 +53,12 @@ include 'connection.php';
 <?php
     $changed = false;
 
-    if(isset($_GET['status']) && $_GET['status'] == 1){
-       $changed = true;
+    if (isset($_GET['status']) && $_GET['status'] == 1) {
+        $changed = true;
     }
 
-    if($changed)
-    {
-     echo '
+    if ($changed) {
+        echo '
        <script type="text/javascript">
          function hideMsg()
          {
@@ -70,7 +69,7 @@ include 'connection.php';
          window.setTimeout("hideMsg()", 3500);
        </script>';
     }
-    ?>
+?>
 
 </body>
 </html>

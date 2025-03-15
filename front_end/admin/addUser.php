@@ -1,5 +1,5 @@
 <?php
-    include '../connection.php';
+    include '../../connection.php';
     // Initialize session
     session_start();
     $id = $_SESSION['id'];
@@ -16,7 +16,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
+ <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <script src="../jquery-3.2.1.min.js"></script>
     <title>Add New User</title>
@@ -65,7 +65,7 @@
 
             </div>
                 <p>Payroll Management System</p>
-                <a href="../home.html">Home</a>
+                <a href="../index.html">Home</a>
                 <a href="../support.php">Support</a>
                 <a href="../announcement.php">Announcements</a>
                 <a href="../faqs.html">FAQs</a>
@@ -232,7 +232,7 @@
        </script>';
     }
 ?>
-        <script src="../js/script.js"> </script>
+        <script src="../../js/script.js"> </script>
 
 </body>
 </html>

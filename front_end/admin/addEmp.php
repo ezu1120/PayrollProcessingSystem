@@ -1,5 +1,5 @@
 <?php
-    include '../connection.php';
+    include '../../connection.php';
     // Initialize session
     session_start();
     $id = $_SESSION['id'];
@@ -16,7 +16,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
+ <link rel="stylesheet" href="../css/style.css">
     <script src="../jquery-3.2.1.min.js"></script>
     <title>Add New Employee</title>
 </head>
@@ -72,7 +72,7 @@
             <div class="bg_task_area">
                 <p style="margin-left: 5%;">Please, enter the following details for the new employee.</p>
                 <hr style="border-width:1px;width:90%;text-align:center">
-                <form class="addEmpForm" action="addEmpProcess.php" method="post">
+                <form class="addEmpForm" action="../../back_end/admin/addEmpProcess.php" method="post">
                     <label for="name">Name</label>
                     <input type="text" name="name">
 
@@ -184,7 +184,7 @@
        </script>';
         }
     ?>
-        <script src="../js/script.js"> </script>
+        <script src="../../js/script.js"> </script>
 
 </body>
 </html>

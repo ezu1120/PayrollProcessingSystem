@@ -1,5 +1,5 @@
 <?php
-    include '../connection.php';
+    include '../../connection.php';
     // Initialize session
     session_start();
     $id = $_SESSION['id'];
@@ -123,6 +123,6 @@
             </div>
         </div>
     </div>
-    <script src="../js/script.js"> </script>
+    <script src="../../js/script.js"> </script>
 </body>
 </html>

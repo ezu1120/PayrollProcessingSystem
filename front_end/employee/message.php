@@ -1,14 +1,14 @@
 <?php
-	include '../connection.php';
-	// Initialize session
-	session_start();
-    $id = $_SESSION['id'];
+    include '../../connection.php';
+    // Initialize session
+    session_start();
+    $id     = $_SESSION['id'];
     $emp_id = $_SESSION['emp_id'];
 
-	if ($_SESSION['loggedin'] !== TRUE) {
-		header('location: ../login.php');
-		exit;
-	}
+    if ($_SESSION['loggedin'] !== true) {
+        header('location: ../login.php');
+        exit;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +17,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
+ <link rel="stylesheet" href="../css/style.css">
     <title>Payrolls</title>
 </head>
 <body>
@@ -34,25 +34,23 @@
         </div>
         <div class="sidebar">
             <div class="bg_sidebar">
-                <div class="user">                        
+                <div class="user">
 
                     <?php
-                    $img = mysqli_query($con,"select picture from users where user_id = $id "); // fetch data from database
-                    $row = mysqli_fetch_array($img);
+                        $img = mysqli_query($con, "select picture from users where user_id = $id "); // fetch data from database
+                        $row = mysqli_fetch_array($img);
 
-                    if (
-                        $row['picture'] == '' ||  $row['picture'] == null ||  empty($row['picture']) ||  !$row['picture'])
-                        {
-                          ?>
+                        if (
+                            $row['picture'] == '' || $row['picture'] == null || empty($row['picture']) || ! $row['picture']) {
+                        ?>
                           <img src="../images/user.png" alt="User Photo" width="45%"> <!-- This Dummy image will be displayed if user img not found in DB -->
                           <?php
-                      }
-                      else {
-                        echo '<img src="data:image/jpeg;base64,'.base64_encode( $row['picture'] ).'" width="100" eight="100"/>';
-                      }
-                    ?>
-                    <span style="display: block;">Welcome <?php echo $_SESSION['name'] ?></span>
-                    
+                              } else {
+                                  echo '<img src="data:image/jpeg;base64,' . base64_encode($row['picture']) . '" width="100" eight="100"/>';
+                              }
+                          ?>
+                    <span style="display: block;">Welcome<?php echo $_SESSION['name'] ?></span>
+
                 </div>
                 <hr style="border-width:1px;width:95%;text-align:center">
                 <a href="../employee/dashboard.php">Dashboard</a>
@@ -89,15 +87,14 @@
         Your message has been sent successfully!
     </div>
     <?php
-    $sent = false;
+        $sent = false;
 
-    if(isset($_GET['status']) && $_GET['status'] == 2){
-       $sent = true;
-    }
+        if (isset($_GET['status']) && $_GET['status'] == 2) {
+            $sent = true;
+        }
 
-    if($sent)
-    {
-     echo '
+        if ($sent) {
+            echo '
        <script type="text/javascript">
          function hideMsg()
          {
@@ -107,7 +104,7 @@
          document.getElementById("popup2").style.visibility = "visible";
          window.setTimeout("hideMsg()", 2500);
        </script>';
-    }
-    ?>  
+        }
+    ?>
 </body>
 </html>
