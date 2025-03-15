@@ -22,16 +22,21 @@
 <body>
     <div style="overflow: hidden; height: 100vh;">
         <div class="header">
-        <div class="app-header-left" style="padding-right: 10px; padding-left:10px; padding-bottom:10px;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="feather feather-list">
-                            <line x1="8" y1="6" x2="21" y2="6" />
-                            <line x1="4" y1="12" x2="32" y2="12" />
-                            <line x1="8" y1="18" x2="21" y2="18" />
-                        </svg>
-            </div>
-        </div>
+            <div class="app-header-left" style="padding-right: 10px; padding-left:10px; padding-bottom:10px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="feather feather-list">
+                                <line x1="8" y1="6" x2="21" y2="6" />
+                                <line x1="4" y1="12" x2="32" y2="12" />
+                                <line x1="8" y1="18" x2="21" y2="18" />
+                            </svg>
+                </div>
+                <p>Payroll Management System</p>
+            <a href="../home.html">Home</a>
+            <a href="../support.php">Support</a>
+            <a href="../announcement.php">Announcements</a>
+            <a href="../faqs.html">FAQs</a>
+         </div>
 
         <div class="sidebar">
             <div class="bg_sidebar">
@@ -58,14 +63,14 @@
                 <a href="../admin/dashboard.php">Dashboard</a>
                 <a href="../admin/employees.php">Employees</a>
                 <a href="../admin/departments.php">Departments</a>
-                <a href="../admin/payrolls.php">Payrolls</a>
-                <a href="../admin/users.php">Users</a>
-                <a href="../logout.php">Logout</a>
+                <a href="../../back_end/admin/payrolls.php">Payrolls</a>
+                <a href="../../back_end/admin/users.php">Users</a>
+                <a href="../../logout.php">Logout</a>
             </div>
         </div>
         <div class="task_area">
             <div class="bg_task_area">
-                <p style="margin-left: 50px">Enter following details to delete an existing department.</p>
+                <p style="margin-left: 100px">Enter following details to delete an existing department.</p>
                 <hr style="border-width:1px;width:90%;text-align:center">
                 <form class="addEmpForm" action="deltDeptProcess.php" method="post">
 

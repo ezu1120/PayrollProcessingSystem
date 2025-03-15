@@ -53,7 +53,8 @@ include '../../connection.php';
                         <?php
                             } else {
                                 // echo '<img src="data:image/jpeg;base64,'.base64_encode( $row['picture'] ).'" width="100" eight="100"/>';
-                                echo '<img src= "' . $row["picture"] . '" width="100" eight="100"/>';
+                                echo '<img src="../../front_end/images/user.png" alt="User Photo" width="45%">';
+                                // echo '<img src= "' . $row["picture"] . '" width="100" eight="100"/>';
                             }
                         ?>
                     <span style="display: block;">Welcome<?php echo $_SESSION['name'] ?></span>
@@ -161,10 +162,10 @@ include '../../connection.php';
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             document.querySelector(".addU").addEventListener("click", function() {
-        window.location.href = "addUser.php"; // Change this URL to your desired page
+        window.location.href = "../../front_end/admin/addUser.php"; // Change this URL to your desired page
     });
     document.querySelector(".deleteU").addEventListener("click", function() {
-        window.location.href = "delt_user.php"; // Change this URL to your desired page
+        window.location.href = "../../front_end/admin/delt_user.php"; // Change this URL to your desired page
     });
     });
 

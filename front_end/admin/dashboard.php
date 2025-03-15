@@ -129,7 +129,15 @@
             </div>
         </div>
     </div>
-
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+         document.querySelector(".departments").addEventListener("click", function() {
+        window.location.href = "../admin/departments.php"; // Change this URL to your desired page
+    });
+    document.querySelector(".payrolls").addEventListener("click", function() {
+        window.location.href = "../../back_end/admin/payrolls.php"; // Change this URL to your desired page
+    });});
+    </script>
     <script src="../../js/script.js"> </script>
 </body>
 </html>

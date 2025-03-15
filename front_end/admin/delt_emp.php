@@ -22,7 +22,7 @@
 <body>
     <div style="overflow: hidden; height: 100vh;">
         <div class="header">
-        <div class="app-header-left" style="padding-right: 10px; padding-left:10px; padding-bottom:10px;">
+          <div class="app-header-left" style="padding-right: 10px; padding-left:10px; padding-bottom:10px;">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="feather feather-list">
@@ -63,9 +63,9 @@
                 <a href="../admin/dashboard.php">Dashboard</a>
                 <a href="../admin/employees.php">Employees</a>
                 <a href="../admin/departments.php">Departments</a>
-                <a href="../admin/payrolls.php">Payrolls</a>
-                <a href="../admin/users.php">Users</a>
-                <a href="../logout.php">Logout</a>
+                <a href="../../back_end/admin/payrolls.php">Payrolls</a>
+                <a href="../../back_end/admin/users.php">Users</a>
+                <a href="../../logout.php">Logout</a>
             </div>
         </div>
         <div class="task_area">

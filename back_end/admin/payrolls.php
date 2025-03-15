@@ -50,11 +50,12 @@ include '../../connection.php';
                     if (
                         $row['picture'] == '' || $row['picture'] == null || empty($row['picture']) || ! $row['picture']) {
                     ?>
-                        <img src="../images/user.png" alt="User Photo" width="45%"> <!-- This Dummy image will be displayed if user img not found in DB -->
+                        <img src="../../front_end/images/user.png" alt="User Photo" width="45%"> <!-- This Dummy image will be displayed if user img not found in DB -->
                         <?php
                             } else {
                                 // echo '<img src="data:image/jpeg;base64,'.base64_encode( $row['picture'] ).'" width="100" eight="100"/>';
-                                echo '<img src= "' . $row["picture"] . '" width="100" eight="100"/>';
+                                echo '<img src="../../front_end/images/user.png" alt="User Photo" width="45%">';
+                                // echo '<img src= "' . $row["picture"] . '" width="100" eight="100"/>';
                             }
                         ?>
                     <span style="display: block;">Welcome<?php echo $_SESSION['name'] ?></span>

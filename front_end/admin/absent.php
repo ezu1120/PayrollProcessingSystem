@@ -63,9 +63,9 @@
                 <a href="../admin/dashboard.php">Dashboard</a>
                 <a href="../admin/employees.php">Employees</a>
                 <a href="../admin/departments.php">Departments</a>
-                <a href="../admin/payrolls.php">Payrolls</a>
-                <a href="../admin/users.php">Users</a>
-                <a href="../logout.php">Logout</a>
+                <a href="../../back_end/admin/payrolls.php">Payrolls</a>
+                <a href="../../back_end/admin/users.php">Users</a>
+                <a href="../../logout.php">Logout</a>
             </div>
         </div>
         <div class="task_area">
