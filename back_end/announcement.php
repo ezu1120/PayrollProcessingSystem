@@ -47,10 +47,10 @@
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Select all the 'read-more-btn' elements dynamically
+          
             const readMoreBtns = document.querySelectorAll('.read-more-btn');
 
-            // Loop through each button and add the event listener
+            
             readMoreBtns.forEach((btn) => {
                 btn.addEventListener('click', function (event) {
                     const currentText = event.target.parentNode.querySelector('.read-more-text');
