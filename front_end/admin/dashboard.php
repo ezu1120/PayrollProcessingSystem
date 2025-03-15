@@ -1,5 +1,5 @@
 <?php
-    include '../../connection.php';
+    include '../connection.php';
     // Initialize session
     session_start();
     $id = $_SESSION['id'];
@@ -16,7 +16,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <title>Dashboard</title>
 </head>
 <body>
@@ -27,9 +27,9 @@
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="feather feather-list">
-                            <line x1="8" y1="6" x2="21" y2="6" />
+                            <line x1="4" y1="6" x2="32" y2="6" />
                             <line x1="4" y1="12" x2="32" y2="12" />
-                            <line x1="8" y1="18" x2="21" y2="18" />
+                            <line x1="4" y1="18" x2="32" y2="18" />
                         </svg>
             </div>
             <p>Payroll Management System</p>
@@ -73,9 +73,9 @@
                 <a href="../admin/dashboard.php">Dashboard</a>
                 <a href="../admin/employees.php">Employees</a>
                 <a href="../admin/departments.php">Departments</a>
-                <a href="../admin/payrolls.php">Payrolls</a>
-                <a href="../admin/users.php">Users</a>
-                <a href="../logout.php">Logout</a>
+                <a href="../../back_end/admin/payrolls.php">Payrolls</a>
+                <a href="../../back_end/admin/users.php">Users</a>
+                <a href="../../logout.php">Logout</a>
             </div>
         </div>
                 <div class="area1_db_adm">
@@ -101,34 +101,50 @@
                     <div  class="logs">
                         <div style="display: flex; gap:30px; width:85%;text-align:center;">
 
-                            <div  class="log">  <h2>Present</h2> <span><?php echo $countPresent ?></span>
+                            <div  class="log present" > <h2>Present</h2> <span><?php echo $countPresent ?></span>
                             </div>
-                            <div  class="log">             <h2>Absent</h2>     <span><?php echo $absent ?></span>
+                            <div  class="log absent"> <h2>Absent</h2>     <span><?php echo $absent ?></span>
                             </div>
                         </div>
                         <div class="log-2" style="display: flex; gap:30px;width:85%;text-align:center;">
-                        <div  class="log">              <h2> Total Employees</h2>   <span><?php echo $totalEmp ?></span>
-                        </div>
-                            <div  class="log">         <h2>Attendance</h2>          <span><?php echo round($percent, 2) ?></span> %
+                            <div  class="log total_emp"><h2> Total Employees</h2><span><?php echo $totalEmp ?></span>
                             </div>
+                                <div  class="log attendance"> <h2>Attendance</h2><span><?php echo round($percent, 2) ?></span> %
+                                </div>
                         </div>
 
 
                     </div>
 
                 </div>
-                <hr style="border-width:1px;width:90%;text-align:center">
+                <hr style="border-width:1px;width:90%;text-align:center; margin-top:30px">
                 <div class="area2_db_adm">
-                    <div style="display: flex;flex-direction: column;   gap: 20px; ">
-                        <span>Employees</span>
-                        <span>Departments</span>
-                        <span>Payrolls</span>
+                    <div class="area2" style="display: flex;flex-direction: row;   gap: 200px; text-align:center; ">
+                        <span class="employees">Employees</span>
+                        <span class="departments">Departments</span>
+                        <span class="payrolls">Payrolls</span>
                     </div>
 
                 </div>
             </div>
         </div>
     </div>
+
     <script src="../../js/script.js"> </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
