@@ -6,7 +6,7 @@ include '../../connection.php';
     $id = $_SESSION['id'];
 
     if ($_SESSION['loggedin'] !== true) {
-        header('location: ../login.php');
+        header('location: ../../login.php');
         exit;
     }
 ?>
@@ -50,7 +50,7 @@ include '../../connection.php';
                         if (
                             $row['picture'] == '' || $row['picture'] == null || empty($row['picture']) || ! $row['picture']) {
                         ?>
-                            <img src="../images/user.png" alt="User Photo" width="45%"> <!-- This Dummy image will be displayed if user img not found in DB -->
+                            <img src="../../front_end/images/user.png" alt="User Photo" width="45%"> <!-- This Dummy image will be displayed if user img not found in DB -->
                             <?php
                                 } else {
                                     echo '<img src= "' . $row["picture"] . '" width="100" eight="100"/>';

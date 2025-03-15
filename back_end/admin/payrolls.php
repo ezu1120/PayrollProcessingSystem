@@ -6,7 +6,7 @@ include '../../connection.php';
     $id = $_SESSION['id'];
 
     if ($_SESSION['loggedin'] !== true) {
-        header('location: ../login.php');
+        header('location: ../../login.php');
         exit;
     }
 ?>

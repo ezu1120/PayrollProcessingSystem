@@ -5,9 +5,10 @@
     $id = $_SESSION['id'];
 
     if ($_SESSION['loggedin'] !== true) {
-        header('location: ../login.php');
+        header('location: ../../../../logout.php');
         exit;
     }
+    
 ?>
 
 <!DOCTYPE html>

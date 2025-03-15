@@ -16,5 +16,5 @@ if ($count < 1) {
     $stmt->bind_param("ss", $name, $dept_id);
     $stmt->execute();
     echo "New Position Added Successfully!";
-    header("location: ../admin/addPosition.php?status=1");
+    header("location: ../../front_end/admin/addPosition.php.php?status=1");
 }

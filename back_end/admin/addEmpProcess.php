@@ -48,7 +48,7 @@ if ($con->connect_error) {
                 }
 
                 // Redirect to the addEmp page
-                header("Location: ../admin/addEmp.php?status=1");
+                header("Location: ../../front_end/admin/addEmp.php?status=1");
                 exit;
             } else {
                 echo "Error inserting employee: " . $stmt->error;

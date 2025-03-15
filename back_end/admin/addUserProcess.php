@@ -22,15 +22,15 @@ include '../../connection.php';
 
     if($count_emp < 1){
       echo "Employee ID does not exist. Please try again.";
-      header("location: ../admin/addUser.php?status=2");
+      header("location: ../../front_end/admin/addUser.php?status=2");
     }
     else if($count_user > 0){
       echo "User already exists.";
-      header("location: ../admin/addUser.php?status=3");
+      header("location: ../../front_end/admin/addUser.php?status=3");
     }
     else if($count_username > 0){
       echo "Username already exists. Try with unique username.";
-      header("location: ../admin/addUser.php?status=4");
+      header("location:  ../../front_end/admin/addUser.php?status=4");
     }
     else{
       $dept = mysqli_query($con, "SELECT * FROM employees
@@ -45,7 +45,7 @@ include '../../connection.php';
 			$stmt->bind_param("sssisi", $username, $password, $type, $emp_id, $nick,$dept_id);
 			$stmt->execute();
 			echo "New user is added successfully!";
-      header("location: ../admin/addUser.php?status=1");
+      header("location:  ../../front_end/admin/addUser.php?status=1");
 			$stmt->close();
 			$con->close();
 		}

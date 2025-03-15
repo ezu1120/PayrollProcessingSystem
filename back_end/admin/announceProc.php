@@ -9,5 +9,5 @@ $stmt = $con->prepare("INSERT INTO announcements (announce_msg,dateposted,timepo
 $stmt->bind_param("sss",$anc,$dt,$tm);
 $stmt->execute();
 echo "Announcement posted successfully!";
-header("location: ../admin/announcement.php?status=1");
+header("location: ../../front_end/admin/announcement.php?status=1");
 ?>
