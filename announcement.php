@@ -1,5 +1,5 @@
 <?php
-include 'connection.php';
+    include 'connection.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,27 +13,25 @@ include 'connection.php';
 <body>
     <div class="bg_announce">
         <div class="header">
-            <div class="logo">
-                <img src="images/pms_logo.jpeg" alt="pms_logo" width="85%">
-            </div>
-            <p class="pa">Payroll Management System</p>
+
+        <p style="margin-left: 200px;">Payroll Management System</p>
             <a href="index.html">Home</a>
             <a href="support.php">Support</a>
             <a href="announcement.php">Announcements</a>
             <a href="faqs.html">FAQs</a>
-        </div>	
+        </div>
 
         <div>
             <h1>ANNOUNCEMENTS</h1>
         </div>
         <?php
-        $result = mysqli_query($con,"SELECT * FROM announcements");
-        while($row = mysqli_fetch_array($result)) {
-        ?>
+            $result = mysqli_query($con, "SELECT * FROM announcements");
+            while ($row = mysqli_fetch_array($result)) {
+            ?>
         <div class="read-more-container">
-            
+
             <div class="announce_container" style="border: 1px solid green">
-                <p >Date: <?php echo $row['dateposted']?>  Time: <?php echo $row['timeposted']?>
+                <p >Date:                                                   <?php echo $row['dateposted'] ?>  Time:<?php echo $row['timeposted'] ?>
                 <span class="read-more-text">
                     <?php echo $row['announce_msg'] ?>
                 </span>
@@ -41,10 +39,10 @@ include 'connection.php';
             <span class="read-more-btn">Read More...</span>
             </div>
 
-            
+
         </div>
-        <?php 
-        }        
+        <?php
+            }
         ?>
     </div>
     <script>
@@ -56,7 +54,7 @@ include 'connection.php';
             readMoreBtns.forEach((btn) => {
                 btn.addEventListener('click', function (event) {
                     const currentText = event.target.parentNode.querySelector('.read-more-text');
-                    
+
                     // Toggle the class to show or hide the full announcement text
                     currentText.classList.toggle('read-more-text--show');
 
