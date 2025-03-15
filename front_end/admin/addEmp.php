@@ -72,7 +72,7 @@
             <div class="bg_task_area">
                 <p style="margin-left: 5%;">Please, enter the following details for the new employee.</p>
                 <hr style="border-width:1px;width:90%;text-align:center">
-                <form class="addEmpForm" action="addEmpProcess.php" method="post">
+                <form class="addEmpForm" action="../../back_end/admin/addEmpProcess.php" method="post">
                     <label for="name">Name</label>
                     <input type="text" name="name">
 

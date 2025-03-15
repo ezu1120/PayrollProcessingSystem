@@ -1,6 +1,6 @@
 <?php
 include 'connection.php';
-// include 'database_tables/insert_data.php';
+include 'database_tables/insert_data.php';
 include 'back_end/database-table/idex_of_tables.php';
 include 'back_end/database-table/auto_increment.php';
 include 'back_end/database-table/table_constraints.php';
