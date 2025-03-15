@@ -1,5 +1,6 @@
 <?php
-    include '../connection.php';
+include '../../connection.php';
+
     //copying form data into variables
     $username = $_POST ['username'];
     $password = $_POST ['password'];
@@ -49,3 +50,4 @@
 			$con->close();
 		}
 ?>
+../admin/

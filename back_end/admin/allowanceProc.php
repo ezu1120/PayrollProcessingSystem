@@ -1,5 +1,6 @@
 <?php
-include 'connection.php';
+include '../../connection.php';
+
 
 $alw = $_POST['allowance'];
 $emp_id = $_POST['emp_id'];

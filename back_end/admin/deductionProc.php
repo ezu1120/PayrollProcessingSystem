@@ -1,5 +1,6 @@
 <?php
-include 'connection.php';
+include '../../connection.php';
+
 
 $ded = $_POST['deduction'];
 $emp_id = $_POST['emp_id'];

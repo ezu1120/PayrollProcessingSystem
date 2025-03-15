@@ -1,5 +1,6 @@
 <?php
-include 'connection.php';
+include '../../connection.php';
+
 
 $name    = $_POST['pos_name'];
 $dept_id = $_POST['dept_id'];

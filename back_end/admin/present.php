@@ -1,5 +1,6 @@
 <?php
-    include '../connection.php';
+include '../../connection.php';
+
     // Initialize session
     session_start();
     $id = $_SESSION['id'];
@@ -60,12 +61,12 @@
 
                 </div>
                 <hr style="border-width:1px;width:95%;text-align:center">
-                <a href="../admin/dashboard.php">Dashboard</a>
-                <a href="../admin/employees.php">Employees</a>
-                <a href="../admin/departments.php">Departments</a>
+          <a href="../../front_end/admin/dashboard.php">Dashboard</a>
+                <a href="../../front_end/admin/employees.php">Employees</a>
+                <a href="../../front_end/admin/departments.php">Departments</a>
                 <a href="../admin/payrolls.php">Payrolls</a>
                 <a href="../admin/users.php">Users</a>
-                <a href="../logout.php">Logout</a>
+                <a href="../../logout.php">Logout</a>
             </div>
         </div>
         <div class="task_area">
@@ -181,6 +182,6 @@
             </div>
         </div>
     </div>
-    <script src="../js/script.js"> </script>
+    <script src="../../js/script.js"> </script>
 </body>
 </html>

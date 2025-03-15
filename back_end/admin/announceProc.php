@@ -1,5 +1,6 @@
 <?php
-include '../connection.php';
+include '../../connection.php';
+
 
 $anc = $_POST['announcement'];
 $dt = date('y-m-d');
