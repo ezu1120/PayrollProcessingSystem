@@ -70,9 +70,9 @@
         </div>
         <div class="task_area">
             <div class="bg_task_area">
-                <p style="margin-left: 50px">Enter following details to delete an employee.</p>
+                <p style="margin-left: 100px">Enter following details to delete an employee.</p>
                 <hr style="border-width:1px;width:90%;text-align:center">
-                <form class="addEmpForm" action="deltEmpProcess.php" method="post">
+                <form class="addEmpForm" action="../../back_end/admin/deltEmpProcess.php" method="post">
 
                     <label for="emp_id">Employee ID</label>
                     <input type="text" name="emp_id" style="margin-bottom: 20px">

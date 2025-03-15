@@ -102,7 +102,7 @@
             <div class="bg_task_area">
                 <p style="margin-left: 5%;">Please, enter the following details for the new user.</p>
                 <hr style="border-width:1px;width:90%;text-align:center">
-                <form class="addEmpForm" action="addUserProcess.php" method="post" enctype="multipart/form-data">
+                <form class="addEmpForm" action="../../back_end/admin/addUserProcess.php" method="post" enctype="multipart/form-data">
                     <label for="username">Username</label>
                     <input type="text" name="username" id="username" onBlur="checkAvailability()" required>
                     <span id="user-availability-status"></span>
