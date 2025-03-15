@@ -7,5 +7,5 @@ $stmt = $con->prepare("INSERT INTO departments (dept_name, hod) VALUES (?,?)");
 $stmt->bind_param("ss", $name, $hod);
 $stmt->execute();
 echo "New Department Added Successfully!";
-header("location: ../admin/addDepartment.php.php?status=1");
+header("location: ../../front_end/admin/addDepartment.php?status=1");
 ?>
